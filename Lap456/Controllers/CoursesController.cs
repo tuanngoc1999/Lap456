@@ -66,7 +66,8 @@ namespace Lap456.Controllers
         public ActionResult Flowing()
         {
             var userId = User.Identity.GetUserId();
-            var courses = _dbcontext.Followings.Where(a => a.FollowerId == userId).Select(a => a.FolloweeId).ToList();
+            var flowid = _dbcontext.Followings.Single(c => c.FollowerId == userId).FolloweeId;
+            var courses = _dbcontext.Courses.Where(c => c.LectureId == flowid ).Include(l => l.Lecture).ToList();
             //var viewModel = new CoursesViewModel
             //{
             //    UpcomingCourses = courses,
