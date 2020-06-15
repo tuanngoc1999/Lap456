@@ -73,6 +73,7 @@ namespace Lap456.Controllers
             //    UpcomingCourses = courses,
             //    ShowAction = User.Identity.IsAuthenticated
             //};
+
             return View(courses);
 
         }
