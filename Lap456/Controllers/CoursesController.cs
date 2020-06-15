@@ -3,6 +3,7 @@ using Lap456.ViewModels;
 using Microsoft.AspNet.Identity;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -48,5 +49,29 @@ namespace Lap456.Controllers
             _dbcontext.SaveChanges();
             return RedirectToAction("Index", "Home");
         }
+        [Authorize]
+        public ActionResult Attending()
+        {
+            var userId = User.Identity.GetUserId();
+            var courses = _dbcontext.Attendances.Where(a => a.AttendeeId == userId).Select(a => a.Course).Include(l => l.Lecture).Include(l => l.Categlory).ToList();
+            var viewModel = new CoursesViewModel
+            {
+                UpcomingCourses = courses,
+                ShowAction = User.Identity.IsAuthenticated
+            };
+            return View(viewModel);
+        }
+        //[Authorize]
+        //public ActionResult Flowing()
+        //{
+        //    var userId = User.Identity.GetUserId();
+        //    var courses = _dbcontext.Followings.Where(a => a.FolloweeId == userId).Select(a => a.FollowerId).Include(l => l.Lecture).Include(l => l.Categlory).ToList();
+        //    var viewModel = new CoursesViewModel
+        //    {
+        //        UpcomingCourses = courses,
+        //        ShowAction = User.Identity.IsAuthenticated
+        //    };
+        //    return View(viewModel);
+        //}
     }
 }
