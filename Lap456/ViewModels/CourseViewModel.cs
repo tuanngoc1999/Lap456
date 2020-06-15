@@ -20,6 +20,14 @@ namespace Lap456.ViewModels
         [Required]
         public byte Categlory { get; set; }
         public IEnumerable<Categlory> Categlories { get; set; }
+        public string Heading { get; set; }
+        public string Action
+        {
+            get { return (Id != 0) ? "Update" : "Create"; }
+        }
+
+        public int Id { get; set; }
+
         public DateTime GetDateTime()
         {
             return DateTime.Parse(string.Format("{0} {1}", Date, Time));

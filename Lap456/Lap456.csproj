@@ -210,6 +210,7 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\Api\CoursesController.cs" />
     <Compile Include="Controllers\AttendancesController.cs" />
     <Compile Include="Controllers\CoursesController.cs" />
     <Compile Include="Controllers\FollowingsController.cs" />
@@ -244,6 +245,10 @@
     <Compile Include="Migrations\202006081537252_AddFollowingTable.Designer.cs">
       <DependentUpon>202006081537252_AddFollowingTable.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202006151419001_AddIsCanceledColumnToCourse.cs" />
+    <Compile Include="Migrations\202006151419001_AddIsCanceledColumnToCourse.Designer.cs">
+      <DependentUpon>202006151419001_AddIsCanceledColumnToCourse.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\ApplicationDbContext.cs" />
@@ -269,6 +274,12 @@
     <Content Include="Content\Site.css" />
     <Content Include="Scripts\ai.0.22.9-build00167.js" />
     <Content Include="Scripts\ai.0.22.9-build00167.min.js" />
+    <Content Include="Scripts\bootbox.all.js" />
+    <Content Include="Scripts\bootbox.all.min.js" />
+    <Content Include="Scripts\bootbox.js" />
+    <Content Include="Scripts\bootbox.locales.js" />
+    <Content Include="Scripts\bootbox.locales.min.js" />
+    <Content Include="Scripts\bootbox.min.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="ApplicationInsight.config" />
@@ -321,6 +332,7 @@
     <Content Include="Views\Courses\Create.cshtml" />
     <Content Include="Views\Courses\Attending.cshtml" />
     <Content Include="Views\Courses\Flowing.cshtml" />
+    <Content Include="Views\Courses\Mine.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -351,6 +363,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202006081537252_AddFollowingTable.resx">
       <DependentUpon>202006081537252_AddFollowingTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202006151419001_AddIsCanceledColumnToCourse.resx">
+      <DependentUpon>202006151419001_AddIsCanceledColumnToCourse.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
