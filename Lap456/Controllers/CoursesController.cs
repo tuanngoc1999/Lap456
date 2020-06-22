@@ -119,17 +119,11 @@ namespace Lap456.Controllers
             _dbcontext.SaveChanges();
             return RedirectToAction("Index", "Home");
         }
-        public ActionResult TheoCatagory(int id)
-        {
-            var courses = _dbcontext.Courses.Single(c => c.Id == id);
-            return View(courses);
-
-        }
         public ActionResult Cata()
         {
-            var upcomingCourses = _dbcontext.Categlories.Include(c => c.Id).Include(c => c.Name);
-            //var viewModel = new CoursesViewModel { UpcomingCourses = upcomingCourses, ShowAction = User.Identity.IsAuthenticated };
-            return View(upcomingCourses);
+          
+            return View();
         }
+
     }
 }

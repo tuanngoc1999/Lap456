@@ -36,6 +36,15 @@ namespace Lap456.Controllers
 
             return View();
         }
-        
+        public ActionResult TheoCatagory(int id)
+        {
+            //.Single(c => c.Id == id)
+            //var courses = _dbContext.Courses.Include(c => c.Lecture).Include(c => c.Categlory).Where(c => c.DateTime > DateTime.Now); ;
+            //var viewModel = new CoursesViewModel { UpcomingCourses = courses, ShowAction = User.Identity.IsAuthenticated };
+            var courses = _dbContext.Courses.Where(c => c.CategloryId == id && c.DateTime > DateTime.Now).Include(l => l.Lecture).Include(l => l.Categlory).ToList();
+            return View(courses);
+            //return View(viewModel);
+
+        }
     }
 }

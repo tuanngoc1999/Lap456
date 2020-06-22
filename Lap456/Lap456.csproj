@@ -333,8 +333,8 @@
     <Content Include="Views\Courses\Attending.cshtml" />
     <Content Include="Views\Courses\Flowing.cshtml" />
     <Content Include="Views\Courses\Mine.cshtml" />
-    <Content Include="Views\Courses\TheoCatagory.cshtml" />
     <Content Include="Views\Courses\Cata.cshtml" />
+    <Content Include="Views\Home\TheoCatagory.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
