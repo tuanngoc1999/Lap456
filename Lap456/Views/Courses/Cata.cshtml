@@ -1,0 +1,29 @@
+﻿
+@*@model Lap456.Models.Categlory
+@{
+    ViewBag.Title = "Home page";
+}
+
+<h2>Khóa học</h2>
+<ul class="course">
+    @foreach (var course in Model)
+            {
+        <li>
+  
+            <div class="detail">
+                
+                <span class="category">@course.Categlory.Name</span>
+                @if (Model.ShowAction)
+                {
+                    <button data-course-id="@course.Id" class="btn btn-default btn-sm js-toggle-attendance">Going?</button>
+                }
+            </div>
+        </li>
+    }
+</ul>*@
+
+
+
+
+
+

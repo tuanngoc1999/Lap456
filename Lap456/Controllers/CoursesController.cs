@@ -92,7 +92,7 @@ namespace Lap456.Controllers
             var viewModel = new CourseViewModel
             {
                 Categlories = _dbcontext.Categlories.ToList(),
-                Date = courses.DateTime.ToString("dd/M/yyyy"),
+                Date = courses.DateTime.ToString("dd/MM/yyyy"),
                 Time = courses.DateTime.ToString("HH:mm"),
                 Categlory = courses.CategloryId,
                 Place = courses.Place,
@@ -118,6 +118,18 @@ namespace Lap456.Controllers
             courses.CategloryId = viewModel.Categlory;
             _dbcontext.SaveChanges();
             return RedirectToAction("Index", "Home");
+        }
+        public ActionResult TheoCatagory(int id)
+        {
+            var courses = _dbcontext.Courses.Single(c => c.Id == id);
+            return View(courses);
+
+        }
+        public ActionResult Cata()
+        {
+            var upcomingCourses = _dbcontext.Categlories.Include(c => c.Id).Include(c => c.Name);
+            //var viewModel = new CoursesViewModel { UpcomingCourses = upcomingCourses, ShowAction = User.Identity.IsAuthenticated };
+            return View(upcomingCourses);
         }
     }
 }
